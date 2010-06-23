@@ -14,6 +14,11 @@
 #   about_triangle_project_2.rb
 #
 def triangle(a, b, c)
+  sides = [a,b,c].sort
+  if (sides[0] + sides[1] <= sides[2])
+    raise TriangleError, "Can't form a triangle of this!?"
+  end
+
   if a == b && b == c
     :equilateral
   elsif a == b || a == c  || b == c
